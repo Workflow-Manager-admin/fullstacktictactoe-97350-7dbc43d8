@@ -1,82 +1,67 @@
-# Lightweight React Template for KAVIA
+# Tic Tac Toe – Modern React Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, minimalistic, and responsive React app for playing Tic Tac Toe with authentication, real-time play, and history/statistics!  
+Light-themed with primary color `#2196f3`, accent `#e91e63`, and clean UI.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- User registration, login, session persistence
+- Create new games vs other users
+- Real-time board updates (auto-refresh)
+- See player info and whose turn it is
+- Game history and personal statistics view
+- Responsive UI for desktop and mobile
 
-## Getting Started
+## Project Structure
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```
+src/
+  App.js                # Main app routing, context, and layout
+  App.css               # Modern/minimal CSS (primary palette)
+  index.js              # App entry point
+  auth/
+    AuthContext.js      # Auth provider and hooks
+    LoginPage.js        # Login UI
+    RegisterPage.js     # Registration UI
+  game/
+    GameBoardPage.js    # Main board + game status/actions
+    GameBoardPage.css   # Board, player layout, etc
+    GameHistoryPage.js  # List of previous games/statistics
+    NewGamePage.js      # Start a new game flow
 ```
 
-### Components
+## Setup & Usage
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+1. `npm install`
+2. `npm start`
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+To connect to your backend at a custom URL, set the variable:
+```bash
+REACT_APP_TTT_API=http://localhost:3001 npm start
+```
 
-## Learn More
+## Routing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `/login` — Login
+- `/register` — Register
+- `/games/new` — Start new game
+- `/games/:gameId` — Play/view a game
+- `/games/history` — Game history/statistics
 
-### Code Splitting
+## API Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+All backend API endpoints should be compatible with the FastAPI backend:
+- Registration: `POST /auth/register`
+- Login:       `POST /auth/login`
+- Game actions: See `/games` endpoints
 
-### Analyzing the Bundle Size
+## Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Centered board with player info above, actions below
+- Modern rounded containers; no UI framework needed
+- Color palette:  
+  - Primary: #2196f3
+  - Accent: #e91e63
+  - Secondary BG: #f5f5f5
+- Responsive for desktop & mobile
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

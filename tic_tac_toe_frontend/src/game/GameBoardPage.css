@@ -1,0 +1,71 @@
+.ttt-board {
+  width: 294px;
+  height: 294px;
+  background: var(--bg-secondary, #f5f5f5);
+  border: 2.5px solid var(--primary, #2196f3);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  margin: 0 auto;
+  box-shadow: 0 4px 18px rgba(33, 150, 243, 0.10);
+}
+
+.ttt-cell {
+  background: #fff;
+  border: 1.5px solid var(--border-color, #e9ecef);
+  border-radius: 8px;
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: var(--primary, #2196f3);
+  outline: none;
+  transition: background .12s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  height: 92px;
+}
+.ttt-cell:disabled,
+.ttt-cell[disabled] {
+  opacity: 0.6;
+  background: var(--secondary, #f5f5f5);
+  cursor: default;
+}
+
+.ttt-players {
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  font-size: 18px;
+  margin-bottom: 12px;
+  user-select: none;
+}
+.ttt-player {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  font-weight: 500;
+}
+.ttt-vs {
+  color: #bbb;
+  font-size: 1em;
+  font-weight: 400;
+}
+.ttt-player .sym {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .ttt-board {
+    width: 99vw;
+    max-width: 96vw;
+    height: 99vw;
+    min-width: unset;
+    min-height: unset;
+    margin: 1rem auto;
+  }
+  .ttt-cell { height: unset; min-height: 80px; max-height: 99vw; font-size: 2rem; }
+}
